@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
+
 //navegacion
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -9,7 +10,7 @@ import image from "./assets/logo.png";
 const Stack = createStackNavigator()
 
 //componentes
-import  home from './Screens/home';
+import  Home from "./Screens/Home";
 import  UsersList from './Screens/UsersList';
 import  CreateUsersScreen from "./Screens/CreateUsersScreen";
 import  UserDetailsScreen from "./Screens/UserDetailsScreen";
@@ -19,8 +20,8 @@ function MyStack() {
   return (
     <Stack.Navigator
          screenOptions={{
-        headerStyle: {
-          backgroundColor: "blue",
+          headerStyle: {
+            backgroundColor: "blue",
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -28,7 +29,18 @@ function MyStack() {
       },
     }}
      >
-      <Stack.Screen name = "Lista de Socios" component={UsersList} 
+
+      <Stack.Screen name = "Home" 
+      component={Home}
+      options={{ headerRight: () => (
+        <Image
+        style={{width: 30, height: 30, margin: 20}} source={image}
+        />
+    ),
+    }}
+       /> 
+      <Stack.Screen name = "Lista de Socios" 
+      component={UsersList} 
       options={{ headerRight: () => (
             <Image
             style={{width: 30, height: 30, margin: 20}}
@@ -37,7 +49,8 @@ function MyStack() {
         ),
         }}
       />
-      <Stack.Screen name = "CreateUsersScreen" component={CreateUsersScreen} 
+      <Stack.Screen name = "Crear Nuevo Socio" 
+      component={CreateUsersScreen} 
       options={{ headerRight: () => (
         <Image
         style={{width: 30, height: 30, margin: 20}}
@@ -46,7 +59,8 @@ function MyStack() {
     ),
     }}
       />  
-      <Stack.Screen name = "UserDetailsScreen" component={UserDetailsScreen} 
+      <Stack.Screen name = "Detalles del Socio" 
+      component={UserDetailsScreen} 
       options={{ headerRight: () => (
         <Image
         style={{width: 30, height: 30, margin: 20}}
@@ -55,7 +69,7 @@ function MyStack() {
     ),
     }}
       />
-      <Stack.Screen name = "home" component={home} />
+      
       
     </Stack.Navigator>
   )

@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image,TouchableHighlight, StatusBar } from 'react-native'
+import { View, Text, Button, StyleSheet, Image,TouchableHighlight, StatusBar } from 'react-native'
 import  image  from '../assets/logo.png'
 
 
-const home = (props) => {
+const Home = (props) => {
     return (
     <View style={styles.container}>
       <Image source={image} style={styles.image} />
@@ -14,12 +14,16 @@ const home = (props) => {
       style={styles.boton}>
         <Text>Comenzar</Text>
       </TouchableHighlight>
+      <Button //no admite stylos cambiar po un touchcable despues
+       onPress={() => props.navigation.navigate("UsersList")}
+        title="Divisiones"
+      />
       <StatusBar style="auto" />
     </View>
     )
 }
 
-export default home
+export default Home
 
 const styles = StyleSheet.create({
     container: {

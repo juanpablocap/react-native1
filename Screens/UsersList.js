@@ -4,11 +4,6 @@ import { ListItem, Avatar, Badge, Header } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 import firebase from "../database/firebase";
 
-<Header
-  leftComponent={{ icon: 'menu', color: '#fff' }}
-  centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
-  rightComponent={{ icon: 'home', color: '#fff' }}
-/>
 
 const UsersList = (props) => {
   const [users, setUsers] = useState([]);

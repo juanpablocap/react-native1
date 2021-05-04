@@ -161,4 +161,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserDetailsScreen;
+export default UserDetailsScreen
