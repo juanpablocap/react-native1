@@ -10,15 +10,20 @@ const Home = (props) => {
       <Text style={styles.texto}>NYG - Manage System</Text>
       <Text>Sistema para la organizacion de divisiones de NYG</Text>
       <TouchableHighlight 
+      onPress={() => props.navigation.navigate("News")} 
+      style={styles.boton}>
+        <Text>Noticias</Text>
+      </TouchableHighlight>
+      <TouchableHighlight 
+      onPress={() => props.navigation.navigate("Divisiones")} 
+      style={styles.boton}>
+        <Text>Divisiones</Text>
+      </TouchableHighlight>
+      <TouchableHighlight 
       onPress={() => props.navigation.navigate("UsersList")} 
       style={styles.boton}>
-        <Text>Comenzar</Text>
+        <Text>Fixture</Text>
       </TouchableHighlight>
-      <Button //no admite stylos cambiar po un touchcable despues
-       onPress={() => props.navigation.navigate("UsersList")}
-        title="Divisiones"
-      />
-      <StatusBar style="auto" />
     </View>
     )
 }
@@ -29,6 +34,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
+      padding: 40,
       alignItems: 'center',
       justifyContent: 'center', 
     },
