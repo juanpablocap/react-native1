@@ -1,38 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { Button, StyleSheet, View, Text } from "react-native";
-import { ListItem, Avatar, Badge, Header } from "react-native-elements";
+import { ListItem, Avatar, Badge } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 import firebase from "../database/firebase";
 
 
-const UsersList = (props) => {
-  const [users, setUsers] = useState([]);
+const M6 = (props) => {
+  const [socios, setUsers] = useState([]);
 
   useEffect(() => {
-    firebase.db.collection("users").onSnapshot((querySnapshot) => {
-      const users = [];
+    firebase.db.collection("Socios").onSnapshot((querySnapshot) => {
+      const socios = [];
       querySnapshot.docs.forEach((doc) => {
-        const { name, email, phone } = doc.data();
-        users.push({
+        const { name, email, phone, div } = doc.data();
+        socios.push({
           id: doc.id,
           name,
           email,
           phone,
+          div
         });
       });
-      setUsers(users);
+      setUsers(socios);
     });
   }, []);
 
   return (
-    
     <ScrollView>
-      <View><Text style={styles.division}>Division m9 (2012)</Text></View>
+      <View><Text style={styles.division}>Division M 6 (2012)</Text></View>
       <Button //no admite stylos cambiar po un touchcable despues
-        style={styles.btn} onPress={() => props.navigation.navigate("CreateUsersScreen")}
+        style={styles.btn} onPress={() => 
+        props.navigation.navigate("CreaSocio")}
         title="Crear Socio"
       />
-      {users.map((user) => {
+      {socios.map((user) => {
         return (
           <ListItem
             key={user.id}
@@ -43,8 +44,8 @@ const UsersList = (props) => {
               });
             }}
           >
-            <ListItem.Chevron />
-            <Avatar
+            <ListItem.Chevron />  
+            <Avatar  // imagen del usuario x ahora una generica
               source={{
                 uri:
                   "https://www.microstockposts.com/storage/2019/10/000074.jpg",
@@ -52,13 +53,18 @@ const UsersList = (props) => {
               rounded
             />
             <Badge
-            status="success"
+            status="success" // un punto de color, que indica un estado verde/rojo
             containerStyle={{ position: 'absolute', top: 38, right: 318 }}
            />
             <ListItem.Content>
-              <ListItem.Title>{user.name}</ListItem.Title>
-              <ListItem.Subtitle style={styles.subtitle}>{user.email}</ListItem.Subtitle>
+                <ListItem.Title>
+                  {user.name}
+                </ListItem.Title>
+                <ListItem.Subtitle style={styles.subtitle}>
+                  {user.div} 
+                 </ListItem.Subtitle>
             </ListItem.Content>
+            {console.log(user.name, user.div)}
           </ListItem>
         );
       })}
@@ -66,7 +72,7 @@ const UsersList = (props) => {
   );
 };
 
-export default UsersList
+export default M6
 
 const styles = StyleSheet.create({
   subtitle: {

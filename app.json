@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Aplicacion para el manejo de socios de el club de Rugby Natacion y Gimnasia"
   }
 }

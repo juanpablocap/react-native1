@@ -3,12 +3,14 @@ import {
   ScrollView,
   Button,
   View,
+  Text,
   Alert,
   ActivityIndicator,
   StyleSheet,
 } from "react-native";
+import { Avatar} from "react-native-elements";
 import { TextInput } from "react-native-gesture-handler";
-
+import { shouldUseActivityState } from "react-native-screens";
 import firebase from "../database/firebase";
 
 const UserDetailsScreen = (props) => {
@@ -17,6 +19,7 @@ const UserDetailsScreen = (props) => {
     name: "",
     email: "",
     phone: "",
+    div: "",
   };
 
   const [user, setUser] = useState(initialState);
@@ -27,7 +30,7 @@ const UserDetailsScreen = (props) => {
   };
 
   const getUserById = async (id) => {
-    const dbRef = firebase.db.collection("users").doc(id);
+    const dbRef = firebase.db.collection("Socios").doc(id);
     const doc = await dbRef.get();
     const user = doc.data();
     setUser({ ...user, id: doc.id });
@@ -38,16 +41,16 @@ const UserDetailsScreen = (props) => {
   const deleteUser = async () => {
     setLoading(true)
     const dbRef = firebase.db
-      .collection("users")
+      .collection("Socios")
       .doc(props.route.params.userId);
     await dbRef.delete();
     setLoading(false)
-    //props.navigation.navigate('UsersList');
-    props.navigation.goBack();
+    props.navigation.navigate('M6');
+    //props.navigation.goBack(); // otra forma de navegar por las pantallas
   };
 
   const openConfirmationAlert = () => {
-    Alert.alert(
+    Alert.alert(     // no funciona en navegador buscar alternativa
       "Estas borrando el Socio",
       "Estas seguro?",
       [
@@ -62,16 +65,17 @@ const UserDetailsScreen = (props) => {
 
   const updateUser = async () => {
     setLoading(true)
-    const userRef = firebase.db.collection("users").doc(user.id);
+    const userRef = firebase.db.collection("Socios").doc(user.id);
     await userRef.set({
       name: user.name,
       email: user.email,
       phone: user.phone,
+      div: user.div,
     });
     setLoading(false)
     setUser(initialState);
-    //props.navigation.navigate("UsersList");
-    props.navigation.goBack();
+    props.navigation.navigate("M6");
+    //props.navigation.goBack();
   };
 
   useEffect(() => {
@@ -88,6 +92,13 @@ const UserDetailsScreen = (props) => {
 
   return (
     <ScrollView style={styles.container}>
+      <Avatar style={styles.picture} // imagen del usuario x ahora una generica
+              source={{
+                uri:
+                  "https://www.microstockposts.com/storage/2019/10/000074.jpg",
+              }} />
+      <View >
+      </View>
       <View>
         <TextInput
           placeholder="Nombre"
@@ -115,6 +126,15 @@ const UserDetailsScreen = (props) => {
           style={styles.inputGroup}
           value={user.phone}
           onChangeText={(value) => handleTextChange(value, "phone")}
+        />
+      </View>
+      <View>
+        <TextInput
+          placeholder="Division"
+          autoCompleteType="username"
+          style={styles.inputGroup}
+          value={user.div}
+          onChangeText={(value) => handleTextChange(value, "div")}
         />
       </View>
       <View style={styles.btn}>
@@ -158,6 +178,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     fontSize: 20,
     marginBottom: 7,
+  },
+  picture: {
+    width: 270,
+    height: 270,
+    alignContent: 'center',
+    margin: 15,
+    marginBottom: 20,
+    borderColor: 'grey',
   },
 });
 

@@ -25,6 +25,9 @@ import  CreateUsersScreen from './Screens/CreateUsersScreen';
 import  NuevaDivision from './Screens/NuevaDivision';
 import  UserDetailsScreen from './Screens/UserDetailsScreen';
 import  DetallesDivision from './Screens/DetallesDivision';
+import  M6 from "./Screens/M6";
+import  M6x from "./Screens/M6x";
+import  CreaSocio from "./Screens/CreaSocio";
 
 
 function MyStack() {
@@ -120,6 +123,28 @@ function MyStack() {
       component={DetallesDivision} 
       options={{ 
         title:'Detalles de la division', headerRight: () => (
+        <Image
+        style={{width: 30, height: 30, margin: 20}}
+        source={image}
+        />
+    ),
+    }}
+      />
+      <Stack.Screen name = "M6x" 
+      component={M6x} 
+      options={{ 
+        title:'La m6', headerRight: () => (
+        <Image
+        style={{width: 30, height: 30, margin: 20}}
+        source={image}
+        />
+    ),
+    }}
+      />
+      <Stack.Screen name = "CreaSocio" 
+      component={CreaSocio} 
+      options={{ 
+        title:'Creador de Socio', headerRight: () => (
         <Image
         style={{width: 30, height: 30, margin: 20}}
         source={image}
