@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, StyleSheet, View, Text } from "react-native";
-import { ListItem, Avatar, Badge, Header } from "react-native-elements";
+import { ListItem, Avatar, Badge } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
 import firebase from "../database/firebase";
 

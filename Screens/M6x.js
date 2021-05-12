@@ -43,7 +43,15 @@ const M6x = (props) => {
               return (
                 <View>
                   <ScrollView>
-                    <ListItem>
+                    <ListItem
+                      key={user.id}
+                      bottomDivider
+                      onPress={() => { 
+                      props.navigation.navigate("UserDetailsScreen", {
+                      userId: user.id,
+                        });
+                      }}
+                    >
                     <ListItem.Chevron />
                     <Avatar
                       source={{ uri:
