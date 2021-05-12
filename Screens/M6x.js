@@ -32,7 +32,7 @@ const M6x = (props) => {
       <View><Text style={styles.division}>Division m9 (2012)</Text></View>
       <Button //no admite stylos cambiar po un touchcable despues
         style={styles.btn} onPress={() => 
-        props.navigation.navigate("CreateUsersScreen")}
+        props.navigation.navigate("CreaSocio")}
         title="Crear Socio"
         />
         <View>
@@ -43,7 +43,26 @@ const M6x = (props) => {
               return (
                 <View>
                   <ScrollView>
-                    {user.name}
+                    <ListItem>
+                    <ListItem.Chevron />
+                    <Avatar
+                      source={{ uri:
+                      "https://www.microstockposts.com/storage/2019/10/000074.jpg",
+                      }} rounded
+                    />
+                     <Badge
+                      status="success"
+                      containerStyle={{ position: 'absolute', top: 38, right: 318 }}
+                    />
+                      <ListItem.Content>
+                        <ListItem.Title>
+                          {user.name}
+                        </ListItem.Title>
+                        <ListItem.Subtitle>
+                          {user.div}
+                        </ListItem.Subtitle>
+                      </ListItem.Content>
+                    </ListItem>
                   </ScrollView>
                 </View>
               )
