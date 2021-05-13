@@ -49,6 +49,7 @@ function MyStack() {
       component={Home}
       options={{ 
         title:'Home - Bienvenido!', headerRight: () => (
+        <a href='./Screen/Singup'>Singup</a>,
         <Image
         style={{width: 30, height: 30, margin: 20}} source={image}
         />
