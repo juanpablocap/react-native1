@@ -17,6 +17,7 @@ const Stack = createStackNavigator()
 
 //componentes
 import  Home from './Screens/Home';
+import  Singup from "./Screens/Singup";
 import  News from './Screens/News';
 import  Fixture from "./Screens/Fixture";
 import  Divisiones from './Screens/Divisiones';
@@ -50,6 +51,16 @@ function MyStack() {
       options={{ 
         title:'Home - Bienvenido!', headerRight: () => (
         <a href='./Screen/Singup'>Singup</a>,
+        <Image
+        style={{width: 30, height: 30, margin: 20}} source={image}
+        />
+    ),
+    }}
+       /> 
+       <Stack.Screen name = "Singup" 
+      component={Singup}
+      options={{ 
+        title:'Singup', headerRight: () => (
         <Image
         style={{width: 30, height: 30, margin: 20}} source={image}
         />
