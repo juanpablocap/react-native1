@@ -7,6 +7,8 @@ Here you can find a sort explain of this manager system to Natacion y Gimnasia C
 
 The main file of this system ll be at `app.js`, which is the default entry point. All of our subsequent work will build on this initial starting point. 
 
+Expo is a framework and a platform for universal React applications. It is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase.
+
 
 ## Key Topics
 

@@ -78,8 +78,8 @@ const Divisiones = (props) => {
             })}
            />
             <ListItem.Content>
-              <ListItem.Title>{division.division}
-              {console.log('divisiones.division')}
+              <ListItem.Title>
+                {division.division}
               </ListItem.Title>
               <ListItem.Subtitle style={styles.subtitle}>
                 {division.entrenador}

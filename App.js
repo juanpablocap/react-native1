@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Image, View, headerRight, rightComponent } from 'react-native';
+import { StyleSheet, Image, View, TouchableHighlight, 
+  headerRight, rightComponent } from 'react-native';
 import { Header } from "react-native-elements";
 
 //navegacion
@@ -50,12 +51,11 @@ function MyStack() {
       component={Home}
       options={{ 
         title:'Home - Bienvenido!', headerRight: () => (
-        <a href='./Screen/Singup'>Singup</a>,
         <Image
         style={{width: 30, height: 30, margin: 20}} source={image}
         />
-    ),
-    }}
+        ),
+        }}
        /> 
        <Stack.Screen name = "Singup" 
       component={Singup}

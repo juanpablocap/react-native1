@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet, Image,TouchableHighlight, StatusBar } from 'react-native'
+import { View, Text, Button, StyleSheet, 
+  Image,TouchableHighlight, StatusBar } from 'react-native'
 import  image  from '../assets/logo.png'
 
 
