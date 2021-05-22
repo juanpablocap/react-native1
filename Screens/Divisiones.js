@@ -54,7 +54,7 @@ const Divisiones = (props) => {
             key={division.id}
             bottomDivider
             onPress={() => { 
-              props.navigation.navigate("M6x", 
+              props.navigation.navigate("M7", 
               {
                 userId: division.id,
               })
@@ -79,10 +79,10 @@ const Divisiones = (props) => {
            />
             <ListItem.Content>
               <ListItem.Title>
-                {division.division}
+                <Text>Division:  </Text>{division.division}
               </ListItem.Title>
               <ListItem.Subtitle style={styles.subtitle}>
-                {division.entrenador}
+              <Text>Entrenadores:  </Text>{division.entrenador}
                 </ListItem.Subtitle>
             </ListItem.Content>
           </ListItem>

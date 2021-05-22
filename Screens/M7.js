@@ -5,7 +5,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import firebase from "../database/firebase";
 
 
-const M6x = (props) => {
+const M7 = (props) => {
   const [socios, setSocios] = useState([]);
   let users = [];
 
@@ -14,13 +14,14 @@ const M6x = (props) => {
     firebase.db.collection("Socios").onSnapshot((querySnapshot) => {
       const socios2 = [];
       querySnapshot.docs.forEach((doc) => {
-        const { name, email, phone, div } = doc.data();
+        const { name, email, phone, div, div2 } = doc.data();
         socios2.push({
           id: doc.id,
           name,
           email,
           phone,
-          div
+          div,
+          div2
         });
       });
       setSocios(socios2);
@@ -29,7 +30,7 @@ const M6x = (props) => {
 
   return ( 
     <ScrollView>
-      <View><Text style={styles.division}>Division M 6 (2012)</Text></View>
+      <View><Text style={styles.division}>Division M 7 (2013)</Text></View>
       <Button //no admite stylos cambiar po un touchcable despues
         style={styles.btn} onPress={() => 
         props.navigation.navigate("CreaSocio")}
@@ -39,7 +40,7 @@ const M6x = (props) => {
           {console.log(socios.map(user => user.name) )}
           {
           socios.map(user => {
-            if (user.div == 'm6') {
+            if (user.div2 == 'm7') {
               return (
                 <View>
                   <ScrollView>
@@ -85,7 +86,7 @@ const M6x = (props) => {
   );
 };
 
-export default M6x
+export default M7
 
 const styles = StyleSheet.create({
   subtitle: {

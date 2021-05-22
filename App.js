@@ -30,6 +30,8 @@ import  DetallesDivision from './Screens/DetallesDivision';
 import  M6 from "./Screens/M6";
 import  M6x from "./Screens/M6x";
 import  CreaSocio from "./Screens/CreaSocio";
+import  M7 from "./Screens/M7";
+import  Foto from "./Screens/Foto";
 
 
 function MyStack() {
@@ -153,10 +155,33 @@ function MyStack() {
     ),
     }}
       />
+      
       <Stack.Screen name = "CreaSocio" 
       component={CreaSocio} 
       options={{ 
         title:'Creador de Socio', headerRight: () => (
+        <Image
+        style={{width: 30, height: 30, margin: 20}}
+        source={image}
+        />
+    ),
+    }}
+      />
+      <Stack.Screen name = "M7" 
+      component={M7} 
+      options={{ 
+        title:'La m7', headerRight: () => (
+        <Image
+        style={{width: 30, height: 30, margin: 20}}
+        source={image}
+        />
+    ),
+    }}
+      />
+      <Stack.Screen name = "Foto" 
+      component={Foto} 
+      options={{ 
+        title:'Sube una foto', headerRight: () => (
         <Image
         style={{width: 30, height: 30, margin: 20}}
         source={image}
